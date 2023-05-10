@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.2 on win32)" generated="20230504 14:22:14.095" rpa="false" schemaversion="3">
+<suite id="s1" name="DDT1" source="C:\Users\benna\PycharmProjects\wattzhubcpo\tests\wattzhubadmin\DDT1.robot">
+<kw name="open wattzhub admin" library="login_resources" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${urlwattzhub_admin}</arg>
+<arg>${browser1}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230504 14:22:14.267" level="INFO">Opening browser 'Chrome' to base url 'https://sadok.cpo.beta.wattzhub.com/auth/login?returnUrl=%2Fstatistics'.</msg>
+<status status="PASS" starttime="20230504 14:22:14.267" endtime="20230504 14:22:47.463"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230504 14:22:47.463" endtime="20230504 14:22:47.740"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:14.266" endtime="20230504 14:22:47.740"/>
+</kw>
+<test id="s1-t1" name="Right email empty password" line="22">
+<kw name="Invalid login">
+<arg>${email_admin}</arg>
+<arg>${EMPTY}</arg>
+<kw name="Input email" library="login_resources">
+<arg>${email_admin}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${id_email}</arg>
+<arg>${email_admin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 14:22:47.743" level="INFO">Typing text 'sadok.bennahia@internship.continuousnet.com' into text field 'id:email-field'.</msg>
+<status status="PASS" starttime="20230504 14:22:47.743" endtime="20230504 14:22:48.058"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:47.742" endtime="20230504 14:22:48.058"/>
+</kw>
+<kw name="Input password" library="login_resources">
+<arg>${password_admin}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${id_password}</arg>
+<arg>${password_admin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 14:22:48.059" level="INFO">Typing text '' into text field 'id:password-field'.</msg>
+<status status="PASS" starttime="20230504 14:22:48.058" endtime="20230504 14:22:48.182"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:48.058" endtime="20230504 14:22:48.182"/>
+</kw>
+<kw name="Click I accept the End-user License Agreement" library="login_resources">
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${id_LicenseAgreement}</arg>
+<arg>\\13</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230504 14:22:48.183" level="INFO">Sending key(s) ('\\13',) to id:mat-checkbox-1-input element.</msg>
+<msg timestamp="20230504 14:22:48.537" level="INFO">Sending keys \13</msg>
+<status status="PASS" starttime="20230504 14:22:48.182" endtime="20230504 14:22:48.555"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:48.182" endtime="20230504 14:22:48.555"/>
+</kw>
+<kw name="Click loging button" library="login_resources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${xpath_signin}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230504 14:22:48.556" level="INFO">Clicking button '//*[@id="sign-in-button"]'.</msg>
+<status status="PASS" starttime="20230504 14:22:48.556" endtime="20230504 14:22:48.621"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:48.555" endtime="20230504 14:22:48.621"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230504 14:22:50.622" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230504 14:22:48.621" endtime="20230504 14:22:50.622"/>
+</kw>
+<kw name="Error message should be visible" library="login_resources">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>Page Should Contain</arg>
+<arg>Mauvais email ou mot de passe</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>Page Should Contain Element</arg>
+<arg>id:mat-error-5</arg>
+<arg>message=Champs obligatoire</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<msg timestamp="20230504 14:22:50.622" level="FAIL">Evaluating expression 'Page Should Contain' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
+<status status="FAIL" starttime="20230504 14:22:50.622" endtime="20230504 14:22:50.622"/>
+</kw>
+<status status="FAIL" starttime="20230504 14:22:50.622" endtime="20230504 14:22:50.622"/>
+</kw>
+<status status="FAIL" starttime="20230504 14:22:47.741" endtime="20230504 14:22:50.622"/>
+</kw>
+<status status="FAIL" starttime="20230504 14:22:47.740" endtime="20230504 14:22:50.623">Evaluating expression 'Page Should Contain' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</test>
+<test id="s1-t2" name="Right email wrong password" line="23">
+<kw name="Invalid login">
+<arg>${email_admin}</arg>
+<arg>azerty</arg>
+<kw name="Input email" library="login_resources">
+<arg>${email_admin}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${id_email}</arg>
+<arg>${email_admin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 14:22:50.627" level="INFO">Typing text 'sadok.bennahia@internship.continuousnet.com' into text field 'id:email-field'.</msg>
+<status status="PASS" starttime="20230504 14:22:50.626" endtime="20230504 14:22:50.848"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:50.626" endtime="20230504 14:22:50.848"/>
+</kw>
+<kw name="Input password" library="login_resources">
+<arg>${password_admin}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${id_password}</arg>
+<arg>${password_admin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 14:22:50.849" level="INFO">Typing text 'azerty' into text field 'id:password-field'.</msg>
+<status status="PASS" starttime="20230504 14:22:50.848" endtime="20230504 14:22:50.933"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:50.848" endtime="20230504 14:22:50.933"/>
+</kw>
+<kw name="Click I accept the End-user License Agreement" library="login_resources">
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${id_LicenseAgreement}</arg>
+<arg>\\13</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230504 14:22:50.934" level="INFO">Sending key(s) ('\\13',) to id:mat-checkbox-1-input element.</msg>
+<msg timestamp="20230504 14:22:51.231" level="INFO">Sending keys \13</msg>
+<status status="PASS" starttime="20230504 14:22:50.933" endtime="20230504 14:22:51.248"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:50.933" endtime="20230504 14:22:51.248"/>
+</kw>
+<kw name="Click loging button" library="login_resources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${xpath_signin}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230504 14:22:51.248" level="INFO">Clicking button '//*[@id="sign-in-button"]'.</msg>
+<status status="PASS" starttime="20230504 14:22:51.248" endtime="20230504 14:22:51.326"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:51.248" endtime="20230504 14:22:51.326"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230504 14:22:53.327" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230504 14:22:51.326" endtime="20230504 14:22:53.327"/>
+</kw>
+<kw name="Error message should be visible" library="login_resources">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>Page Should Contain</arg>
+<arg>Mauvais email ou mot de passe</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>Page Should Contain Element</arg>
+<arg>id:mat-error-5</arg>
+<arg>message=Champs obligatoire</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<msg timestamp="20230504 14:22:53.328" level="FAIL">Evaluating expression 'Page Should Contain' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
+<status status="FAIL" starttime="20230504 14:22:53.327" endtime="20230504 14:22:53.328"/>
+</kw>
+<status status="FAIL" starttime="20230504 14:22:53.327" endtime="20230504 14:22:53.330"/>
+</kw>
+<status status="FAIL" starttime="20230504 14:22:50.626" endtime="20230504 14:22:53.330"/>
+</kw>
+<status status="FAIL" starttime="20230504 14:22:50.625" endtime="20230504 14:22:53.330">Evaluating expression 'Page Should Contain' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</test>
+<test id="s1-t3" name="wrong email right password" line="24">
+<kw name="Invalid login">
+<arg>sadok@continuousnet.com</arg>
+<arg>${password_admin}</arg>
+<kw name="Input email" library="login_resources">
+<arg>${email_admin}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${id_email}</arg>
+<arg>${email_admin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 14:22:53.335" level="INFO">Typing text 'sadok@continuousnet.com' into text field 'id:email-field'.</msg>
+<status status="PASS" starttime="20230504 14:22:53.334" endtime="20230504 14:22:53.467"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:53.333" endtime="20230504 14:22:53.468"/>
+</kw>
+<kw name="Input password" library="login_resources">
+<arg>${password_admin}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${id_password}</arg>
+<arg>${password_admin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 14:22:53.469" level="INFO">Typing text 'WwwBbb003.' into text field 'id:password-field'.</msg>
+<status status="PASS" starttime="20230504 14:22:53.468" endtime="20230504 14:22:53.583"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:53.468" endtime="20230504 14:22:53.583"/>
+</kw>
+<kw name="Click I accept the End-user License Agreement" library="login_resources">
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${id_LicenseAgreement}</arg>
+<arg>\\13</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230504 14:22:53.585" level="INFO">Sending key(s) ('\\13',) to id:mat-checkbox-1-input element.</msg>
+<msg timestamp="20230504 14:22:53.883" level="INFO">Sending keys \13</msg>
+<status status="PASS" starttime="20230504 14:22:53.584" endtime="20230504 14:22:53.904"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:53.583" endtime="20230504 14:22:53.904"/>
+</kw>
+<kw name="Click loging button" library="login_resources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${xpath_signin}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230504 14:22:53.906" level="INFO">Clicking button '//*[@id="sign-in-button"]'.</msg>
+<status status="PASS" starttime="20230504 14:22:53.905" endtime="20230504 14:22:53.989"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:53.905" endtime="20230504 14:22:53.989"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230504 14:22:55.990" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230504 14:22:53.990" endtime="20230504 14:22:55.990"/>
+</kw>
+<kw name="Error message should be visible" library="login_resources">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>Page Should Contain</arg>
+<arg>Mauvais email ou mot de passe</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>Page Should Contain Element</arg>
+<arg>id:mat-error-5</arg>
+<arg>message=Champs obligatoire</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<msg timestamp="20230504 14:22:55.992" level="FAIL">Evaluating expression 'Page Should Contain' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
+<status status="FAIL" starttime="20230504 14:22:55.991" endtime="20230504 14:22:55.992"/>
+</kw>
+<status status="FAIL" starttime="20230504 14:22:55.990" endtime="20230504 14:22:55.993"/>
+</kw>
+<status status="FAIL" starttime="20230504 14:22:53.333" endtime="20230504 14:22:55.993"/>
+</kw>
+<status status="FAIL" starttime="20230504 14:22:53.332" endtime="20230504 14:22:55.995">Evaluating expression 'Page Should Contain' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</test>
+<test id="s1-t4" name="wrong email empty password" line="25">
+<kw name="Invalid login">
+<arg>sadok@continuousnet.com</arg>
+<arg>${EMPTY}</arg>
+<kw name="Input email" library="login_resources">
+<arg>${email_admin}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${id_email}</arg>
+<arg>${email_admin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 14:22:56.001" level="INFO">Typing text 'sadok@continuousnet.com' into text field 'id:email-field'.</msg>
+<status status="PASS" starttime="20230504 14:22:56.000" endtime="20230504 14:22:56.175"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:55.999" endtime="20230504 14:22:56.175"/>
+</kw>
+<kw name="Input password" library="login_resources">
+<arg>${password_admin}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${id_password}</arg>
+<arg>${password_admin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 14:22:56.177" level="INFO">Typing text '' into text field 'id:password-field'.</msg>
+<status status="PASS" starttime="20230504 14:22:56.176" endtime="20230504 14:22:56.279"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:56.175" endtime="20230504 14:22:56.279"/>
+</kw>
+<kw name="Click I accept the End-user License Agreement" library="login_resources">
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${id_LicenseAgreement}</arg>
+<arg>\\13</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230504 14:22:56.281" level="INFO">Sending key(s) ('\\13',) to id:mat-checkbox-1-input element.</msg>
+<msg timestamp="20230504 14:22:56.591" level="INFO">Sending keys \13</msg>
+<status status="PASS" starttime="20230504 14:22:56.280" endtime="20230504 14:22:56.613"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:56.280" endtime="20230504 14:22:56.613"/>
+</kw>
+<kw name="Click loging button" library="login_resources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${xpath_signin}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230504 14:22:56.615" level="INFO">Clicking button '//*[@id="sign-in-button"]'.</msg>
+<status status="PASS" starttime="20230504 14:22:56.614" endtime="20230504 14:22:56.730"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:56.613" endtime="20230504 14:22:56.730"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230504 14:22:58.731" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230504 14:22:56.731" endtime="20230504 14:22:58.731"/>
+</kw>
+<kw name="Error message should be visible" library="login_resources">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>Page Should Contain</arg>
+<arg>Mauvais email ou mot de passe</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>Page Should Contain Element</arg>
+<arg>id:mat-error-5</arg>
+<arg>message=Champs obligatoire</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<msg timestamp="20230504 14:22:58.733" level="FAIL">Evaluating expression 'Page Should Contain' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
+<status status="FAIL" starttime="20230504 14:22:58.732" endtime="20230504 14:22:58.733"/>
+</kw>
+<status status="FAIL" starttime="20230504 14:22:58.732" endtime="20230504 14:22:58.733"/>
+</kw>
+<status status="FAIL" starttime="20230504 14:22:55.998" endtime="20230504 14:22:58.733"/>
+</kw>
+<status status="FAIL" starttime="20230504 14:22:55.997" endtime="20230504 14:22:58.736">Evaluating expression 'Page Should Contain' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</test>
+<test id="s1-t5" name="wrong email wrong password" line="26">
+<kw name="Invalid login">
+<arg>sadok@continuousnet.com</arg>
+<arg>azerty</arg>
+<kw name="Input email" library="login_resources">
+<arg>${email_admin}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${id_email}</arg>
+<arg>${email_admin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 14:22:58.743" level="INFO">Typing text 'sadok@continuousnet.com' into text field 'id:email-field'.</msg>
+<status status="PASS" starttime="20230504 14:22:58.743" endtime="20230504 14:22:58.881"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:58.742" endtime="20230504 14:22:58.881"/>
+</kw>
+<kw name="Input password" library="login_resources">
+<arg>${password_admin}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${id_password}</arg>
+<arg>${password_admin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 14:22:58.882" level="INFO">Typing text 'azerty' into text field 'id:password-field'.</msg>
+<status status="PASS" starttime="20230504 14:22:58.882" endtime="20230504 14:22:58.963"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:58.882" endtime="20230504 14:22:58.963"/>
+</kw>
+<kw name="Click I accept the End-user License Agreement" library="login_resources">
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${id_LicenseAgreement}</arg>
+<arg>\\13</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230504 14:22:58.965" level="INFO">Sending key(s) ('\\13',) to id:mat-checkbox-1-input element.</msg>
+<msg timestamp="20230504 14:22:59.255" level="INFO">Sending keys \13</msg>
+<status status="PASS" starttime="20230504 14:22:58.964" endtime="20230504 14:22:59.273"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:58.963" endtime="20230504 14:22:59.273"/>
+</kw>
+<kw name="Click loging button" library="login_resources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${xpath_signin}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230504 14:22:59.275" level="INFO">Clicking button '//*[@id="sign-in-button"]'.</msg>
+<status status="PASS" starttime="20230504 14:22:59.274" endtime="20230504 14:22:59.357"/>
+</kw>
+<status status="PASS" starttime="20230504 14:22:59.274" endtime="20230504 14:22:59.357"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230504 14:23:01.359" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230504 14:22:59.358" endtime="20230504 14:23:01.359"/>
+</kw>
+<kw name="Error message should be visible" library="login_resources">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>Page Should Contain</arg>
+<arg>Mauvais email ou mot de passe</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>Page Should Contain Element</arg>
+<arg>id:mat-error-5</arg>
+<arg>message=Champs obligatoire</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<msg timestamp="20230504 14:23:01.360" level="FAIL">Evaluating expression 'Page Should Contain' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
+<status status="FAIL" starttime="20230504 14:23:01.359" endtime="20230504 14:23:01.360"/>
+</kw>
+<status status="FAIL" starttime="20230504 14:23:01.359" endtime="20230504 14:23:01.360"/>
+</kw>
+<status status="FAIL" starttime="20230504 14:22:58.740" endtime="20230504 14:23:01.360"/>
+</kw>
+<status status="FAIL" starttime="20230504 14:22:58.739" endtime="20230504 14:23:01.360">Evaluating expression 'Page Should Contain' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</test>
+<kw name="Close Browsers" library="login_resources" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230504 14:23:01.363" endtime="20230504 14:23:07.663"/>
+</kw>
+<status status="PASS" starttime="20230504 14:23:01.362" endtime="20230504 14:23:07.664"/>
+</kw>
+<doc>Data-driven testing</doc>
+<status status="FAIL" starttime="20230504 14:22:14.097" endtime="20230504 14:23:07.664"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="5" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="5" skip="0" id="s1" name="DDT1">DDT1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
