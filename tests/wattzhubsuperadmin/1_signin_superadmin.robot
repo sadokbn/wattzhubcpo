@@ -1,4 +1,5 @@
 *** Settings ***
+Documentation   Testing Sign in in super admin
 Library    SeleniumLibrary
 Documentation
 *** Variables ***
@@ -25,6 +26,7 @@ Pass username_superadmin and password_superadmin
 *** Test Cases ***
 sign in super admin
     [Tags]    sign
+    Set Selenium Timeout    10s
     open wattzhub super admin
     wait until page contains element    ${id_email}
     # Entering Email and password_superadmin
@@ -34,6 +36,7 @@ sign in super admin
     checkbox should be selected    ${id_LicenseAgreement}
     # Click on Sign in
     click button    ${xpath_signin}
-    sleep    5s
+    sleep    7s
     # check if sign in succeeds
     wait until page contains    Organisations
+    Title Should Be             WattzHub CPO

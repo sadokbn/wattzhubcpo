@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation   Testing admin admin
+Documentation   Testing profile admin
 Library    SeleniumLibrary
 
 *** Variables ***
